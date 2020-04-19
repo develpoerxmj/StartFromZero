@@ -118,4 +118,46 @@ public class SortAlgorithm {
         }
         return mjList;
     }
+
+    /**
+     *
+     * @param array
+     * @param left  起始下标
+     * @param right 结束下标
+     *
+     * 5
+     * 1 2 4 3 6 8 5
+     * 1 2 4 3 6 8 6
+     * 4           6
+     * 快速排序：
+     * 1、取基位（高位为例）
+     * 2、取低位值，如小于等于基位值，右移，否则赋值到高位
+     *    取高位值，如大于等于基位值，左移，否则赋值到低位
+     *    结束时高位、低位重合，赋值为基位值
+     *    保证左边都小于或等q于基位值，右边都大于或等于基位值
+     */
+    public void quickSort(int[] array, int left, int right){
+        if (left >= right)return;
+
+        int low = left;
+        int high = right;
+        //取基位为高位
+        int key = array[high];
+
+        while (low < high){
+            while (array[low] <= key && low < high){
+                low++;
+            }
+            array[high] = array[low];
+
+            while (array[high] >= key && low < high){
+                high--;
+            }
+            array[low] = array[high];
+        }
+        //基位归位
+        array[high] = key;
+        quickSort(array, left, high - 1);
+        quickSort(array, high + 1, right);
+    }
 }

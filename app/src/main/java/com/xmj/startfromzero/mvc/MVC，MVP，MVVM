@@ -1,0 +1,8 @@
+MVC————解决的问题：控制逻辑，数据处理逻辑和界面交互耦合
+    Model 模型，负责数据的加载和存储
+    View 视图，负责界面的展示
+    Controller 控制器，负责逻辑和控制
+
+数据的流向（JavaBean和事件）：
+    View产生事件，通知到Controller，Controller中产生一系列逻辑处理，之后通知Model更新数据，
+    Model更新数据后，再将数据结构通知给View去更新界面
