@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+/**
+ * @author XiaoMengjie
+ */
 @SuppressLint("AppCompatCustomView")
 public class InvalidTextView extends TextView {
 

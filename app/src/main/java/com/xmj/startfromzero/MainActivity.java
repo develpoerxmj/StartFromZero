@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * @author XiaoMengjie
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public void immersive(View view) {
         Intent intent = new Intent(this, ImmersiveActivity.class);
+        startActivity(intent);
+    }
+
+    public void internet(View view) {
+        Intent intent = new Intent(this, InternetActivity.class);
         startActivity(intent);
     }
 }
