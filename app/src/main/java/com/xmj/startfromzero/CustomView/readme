@@ -1,0 +1,47 @@
+MeasureSpec
+
+    代表一个32位int值，由SpecMode和SpecSize组成
+
+    SpecMode：测量模式，分为
+        AT_MOST：父容器指定一个可用大小，即SpecSize，View的大小不能大于这个值。对应LayoutParams中的wrap_content
+        EXACTLY：父容器已经检查出View所需要的精确大小，View的大小就是SpecSize指定的值，对应LayoutParams中的match_parent
+        UNSPECIFIED：父容器对View不做限制，要多大给多大，用于系统内部
+
+    对于顶层View（即DecorView）
+        MeasureSpec由窗口尺寸和起自身的LayoutParams决定
+    对于普通View
+        MeasureSpec由父容器的MeasureSpec和自身的LayoutParams决定
+
+    ViewRootImpl中measureHierarchy方法中getRootMeasureSpec展示了DecorView的MeasureSpec的创建过程
+
+        private static int getRootMeasureSpec(int windowSize, int rootDimension) {
+            int measureSpec;
+            switch (rootDimension) {
+
+            case ViewGroup.LayoutParams.MATCH_PARENT:
+                // Window can't resize. Force root view to be windowSize.
+                measureSpec = MeasureSpec.makeMeasureSpec(windowSize, MeasureSpec.EXACTLY);
+                break;
+            case ViewGroup.LayoutParams.WRAP_CONTENT:
+                // Window can resize. Set max size for root view.
+                measureSpec = MeasureSpec.makeMeasureSpec(windowSize, MeasureSpec.AT_MOST);
+                break;
+            default:
+                // Window wants to be an exact size. Force root view to be that size.
+                measureSpec = MeasureSpec.makeMeasureSpec(rootDimension, MeasureSpec.EXACTLY);
+                break;
+            }
+            return measureSpec;
+        }
+
+     getChildMeasureSpec展示普通View的MeasureSpec的创建规则
+
+     view为固定宽高       父容器MeasureSpec         view的MeasureSpec
+                         无论是什么                 EXACTLY+LayoutParams大小
+
+     view为match_parent  父容器MeasureSpe          view的MeasureSpec
+                         EXACTLY                   EXACTLY+父容器剩余空间
+                         AT_MOST                   AT_MOST+不超过父容器最大空间
+
+     view为AT_MOST       父容器MeasureSpec         view的MeasureSpe
+                         无论是什么                 AT_MOST+不超过父容器最大空间
