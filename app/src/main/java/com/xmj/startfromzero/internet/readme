@@ -39,3 +39,67 @@ TCP连接时，三次握手（见图three.png）
     3、服务端发送FIN报文段，seq = m，此时还必须加上ack = n + 1，此时进入LAST-ACK状态
         m为客户端已传送数据最后一个字节的序号+1
     4、客户端收到报文段，像服务端发送ACK报文段，ack = m + 1，seq = n + 1，此时进入TIME-WAIT，服务端收到确认后关闭连接，客户端等待2MSL（最大报文生存时间）后，关闭连接
+
+
+Http报文分为请求报文 和 响应报文
+    1、请求报文
+        method request_url http_version
+        请求报头(键值对，分号隔开)
+        请求数据
+    2、响应报文
+        version status reason_phrase
+        响应报头(键值对，分号隔开)
+        响应正文
+method
+    常用get和post
+    get请求会将请求参数拼接在url尾部，格式为url?param1=xxx&param2=xxx&[…]，通常指从url获取资源（相当于读）
+    post请求参数会放置在请求体中，通常指对url进行添加，修改
+    head获取url响应消息报头
+    put以url为标识，存储资源
+    delete删除url所标识的资源
+status
+    状态码
+
+    100-199 指示信息，收到请求，需要请求者继续执行操作
+    200-299 请求成功，请求已被成功接收并处理
+    300-399 重定向，要求完成请求必须进行更近一步操作
+    400-499 客户端错误，请求有语法错误或请求无法实现
+    500-599 服务端错误，服务器不能实现合法错误
+
+    200成功
+    206成功执行部分请求，断点续传用到
+    301url被移除，通常在Location首部中包含新的url
+    304再验证，资源未改变
+    404资源不存在
+header
+    报头，键值对形式存在
+    通用报头，请求报头，响应报头，实体报头
+    Date：时间
+    Connection：指定连接
+    Cache-Control：指定缓存
+
+    Host：主机名
+    User-Agent：发送请求的浏览器类型，操作系统等信息
+    Accept：客户端可识别的内容类型
+    Accept-Encoding：客户端可识别的编码
+    Accept-Language：浏览器支持的语言
+    Connection：连接相关信息，如（Keep-Alive持续连接）
+    Transfer-Encoding：告知接收端报文编码类型
+
+    Location：重定向新的url
+    Service：服务端处理请求的系统的信息，与User-Agent相对
+
+    Content-Type：发送给接收者实体正文的媒体信息，需要根据Content-Encoding解码
+    Content-Length：实体正文的长度
+    Content-Language：资源所用语言
+    Content-Encoding：所用编码
+    Last-Modified：实体报头最后修改时间
+    Expires：实体报头给出响应过期时间
+entity
+    实体
+
+
+
+
+
+

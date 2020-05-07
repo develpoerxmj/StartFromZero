@@ -1,5 +1,6 @@
 package com.xmj.startfromzero.internet;
 
+import android.net.Uri;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -30,6 +31,7 @@ import java.util.List;
 /**
  * @author XiaoMengjie
  */
+@Deprecated
 public class HttpClientCreate {
 
     /**
@@ -124,7 +126,7 @@ public class HttpClientCreate {
      * @return
      * @throws IOException
      */
-    private String convergeStreamToString(InputStream inputStream) throws IOException {
+    public static String convergeStreamToString(InputStream inputStream) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuffer buffer = new StringBuffer();
         String line = null;
