@@ -20,7 +20,9 @@ public class BlockingQueueTest {
     private int queueSize = 10;
     private PriorityQueue<Integer> queue = new PriorityQueue<>(queueSize);
 
-    //阻塞队列
+    /**
+     * 阻塞队列
+     */
     ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(queueSize);
 
     public static void main(String[] args) {

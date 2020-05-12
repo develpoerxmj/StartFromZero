@@ -1,0 +1,13 @@
+Retrofit——采用注解方式请求网络
+
+注解三大类：
+    1、Http请求方法注解
+        GET、POST、PUT、DELETE、HEAD、PATCH、OPTIONS、HTTP
+        前7中对应http的请求方法，HTTP则可替换以上7种
+    2、标记类注解
+        FormUrlEncoding、Multipart、Streaming
+        FromUrlEncoding：
+        Multipart：
+        Streaming：响应的数据以流的形式返回，不使用，则默认会把全部数据加载到内存，一般下载大文件时需加上
+    3、参数类注解
+        Header、Headers、Body、Path、Field、FieldMap、Part、PartMap、Query、QueryMap等
