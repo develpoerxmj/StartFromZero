@@ -1,0 +1,7 @@
+工厂方法模式
+    定义一个用于创建对象的接口，让子类决定实例化哪个类，工厂方法使一个类的实例化延迟到子类
+
+Product：抽象产品类
+ConcreteProduct：具体产品类
+Factory：抽象工厂类，返回Product类型
+ConcreteFactory：具体工厂类，返回ConcreteProduct实例
