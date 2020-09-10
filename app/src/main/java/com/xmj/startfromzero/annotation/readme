@@ -1,0 +1,15 @@
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface AutoWrite {
+    String value() default "";
+}
+
+注解的定义：
+    @interface
+
+    元注解：
+        Target：用于什么位置。如ElementType.FIELD用于变量
+        Retention：保存到什么时候
+            RUNTIME：到运行时
+            CLASS：到编译器
+            SOURCE：到源码，编译后消失

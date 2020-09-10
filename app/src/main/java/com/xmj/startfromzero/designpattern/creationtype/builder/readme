@@ -1,0 +1,7 @@
+建造者模式
+    将复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示
+
+    Director：导演类，负责安排已有模块的顺序，通知builder开始建造
+    Builder：抽象builder，规范产品的组建
+    ConcreteBuilder：具体建造者，实现builder定义的所有方法，返回一个组建好的对象
+    Product：产品类

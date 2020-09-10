@@ -1,0 +1,7 @@
+装饰模式
+    动态给一个对象添加一些额外的职责
+
+    Component：抽象组件，被装饰的最原始的对象
+    ConcreteComponent：组件的具体实现
+    Decorator：抽象装饰者，
+    ConcreteDecorator：具体实现
